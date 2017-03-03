@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <title>Login and Registration</title>
+    <link rel="stylesheet"  type="text/css" href="{% static 'css/style.css'%}">
+  </head>
+  <body>
+    <div class="banner">
+      <h1>Welcome!</h1>
+    </div>
+    <div id="wrapper">
+      <div class="registration_form">
+          <h2>Register</h2>
+          <form action="/register_user" method="post">
+            {% csrf_token %}
+            <div>
+              <label>Name</label>
+              <input type="text" name="name" >
+            </div>
+            <div>
+              <label>Alias</label>
+              <input type="text" name="alias" >
+            </div>
+            <div>
+              <label>Email</label>
+              <input type="text" name="email" >
+            </div>
+            <div>
+              <label>Password</label>
+              <input type="password" name="password" >
+              *Password should be at least 8 characters
+            </div>
+            <div>
+              <label>Confirm PW:</label>
+              <input type="password" name="password_confirmation" >
+            </div>
+              <div>
+                <label>Date of Birth</label>
+                <input type="date" name="date" >
+              </div>
+            <div>
+            <input type="submit" value="Register">
+          </form>
+        </div>
+      </div>
+        <div class="login_form">
+        <h2>Login</h2>
+        <form action="/login_user" method="post">
+            {% csrf_token %}
+          <div>
+            <label>Email</label>
+            <input type="text" name="email">
+          </div>
+          <div>
+            <label>Password</label>
+            <input type="password" name="password">
+          </div>
+          <input type="submit" value="Login">
+        </form>
+      </div>
+    </div><!-- wrapper -->
+
+  </body>
+</html>
